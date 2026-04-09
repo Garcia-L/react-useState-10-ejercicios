@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista con eliminación</title>
+
+
+    <!-- CDN de libreria de react  -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- CDN de libreria de react dom -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- CDN de libreria de babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div id="root"></div>
+    </main>
+    <footer></footer>
+
+    <script type="text/babel">
+        const App = () => {
+
+            const [item, setItem] = React.useState([
+                { fruta: "Mango" },
+                { fruta: "Uva" },
+                { fruta: "Naranja" },
+            ]);
+
+            function editar (index) {
+                const nueva_Fruta = prompt("¿Cuál es la nueva fruta?");
+                const copiaItems = [...item];
+                copiaItems[index] = {fruta: nueva_Fruta};
+                setItem(copiaItems);
+            }
+            return (
+                <div>
+                    <h1>Lista con edición</h1>
+                    <p>Edita cada elemento existente al hacer click</p>
+
+                    <ul>
+                        {
+                            item.map(
+                                (elemento, index) => (
+                            <li key={index}>
+                                {elemento.fruta} 
+                                <button onClick={ () => editar(index) }>Editar</button>
+                            </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>

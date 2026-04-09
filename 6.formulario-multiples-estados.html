@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <!-- CDN de libreria de react  -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- CDN de libreria de react dom -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- CDN de libreria de babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div id="root"></div>
+    </main>
+    <footer></footer>
+    <script type="text/babel">
+        const App = () => {
+            const [nombre, setNombre] = React.useState("");
+            const [edad, setEdad] = React.useState("");
+            const [datos, setDatos] = React.useState([]);
+
+            const guardarNombre = (e) => {
+                const nombre = e.target.value; 
+                setNombre(nombre);
+            };
+
+            const guardarEdad = (e) => {
+                const edad = e.target.value;
+                setEdad(edad);
+            }
+
+            const guardar = (e) => {
+                e.preventDefault();
+                const nuevaPersona = {nombre: nombre, edad: edad};
+                setDatos([...datos, nuevaPersona]);
+                e.target.reset();
+            }
+
+            return (
+                <div>
+                    <h1>Formulario de multiples estados, captura de datos</h1>
+                    <p>Agrega el nombre y edad de una persona, utilizando varios useState</p>
+                    <p>Un useState para nombre, otro para edad y uno que</p>
+                    <form onSubmit={guardar}>
+                        <input type="text" id="nombre" placeholder="Ingresa tu nombre" onChange={guardarNombre} />
+                        <input type="number" id="edad" placeholder="Ingresa su edad" onChange={guardarEdad} />
+                        <button type="submit">Enviar</button>
+                    </form>
+
+                    <p>Datos:</p>
+                    <ul>
+                        {
+                            datos.map( (e) => (
+                                <li>{e.nombre} - {e.edad}</li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            )
+        };
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+
+    </script>
+</body>
+
+</html>

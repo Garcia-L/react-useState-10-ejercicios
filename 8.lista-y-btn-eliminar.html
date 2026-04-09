@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista con boton de eliminación</title>
+
+    <!-- CDN de libreria de react  -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- CDN de libreria de react dom -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- CDN de libreria de babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div id="root"></div>
+    </main>
+    <footer></footer>
+
+    <script type="text/babel">
+        const App = () => {
+            const [item, setItem] = React.useState([
+                { fruta: "Piña" },
+                { fruta: "Mango" },
+                { fruta: "Uva" },
+            ]);
+
+            const filtrar = (item_Eliminar) => {
+                const lista_Filtrada = item.filter( (i) => i !== item_Eliminar);
+                setItem(lista_Filtrada);
+            };
+            return (
+                <div>
+                    <h1>Lista con boton de eliminación</h1>
+                    <p>Crea un botón para eliminar cada item</p>
+                    <ul>
+                        {
+                            item.map(
+                                (element, index) => (
+                                    <li key={index}>
+                                        {element.fruta} 
+                                        <button onClick={() => filtrar(element)}>Eliminar</button>
+                                    </li>
+                                )
+                            )
+                        }
+                    </ul>
+                </div>
+            )
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />)
+    </script>
+</body>
+
+</html>

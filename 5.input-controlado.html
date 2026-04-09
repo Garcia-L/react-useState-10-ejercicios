@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input controlado, texto en vivo</title>
+
+    <!-- CDN de libreria de react  -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- CDN de libreria de react dom -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- CDN de libreria de babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div id="root"></div>
+    </main>
+    <footer></footer>
+
+    <script type="text/babel">
+        const App = ()=> {
+            const text = "Ingresa un mensaje en el input";
+            const [input_Text, setInput_Text] = React.useState(`${text}`);
+
+            function textVivo(e) {
+                const valor_Actual = e.target.value;
+                if ( valor_Actual.trim() !== "") {
+                    setInput_Text(valor_Actual);
+                } else {
+                    setInput_Text(text);
+                }
+            }
+
+            return (
+                <div>
+                    <h1>Input de texto, controlado</h1>
+                    <p>{input_Text}</p>
+                    <input onChange={textVivo} type="text" id="input_de_mensaje"/>
+                </div>
+            )
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App/>);
+    </script>
+</body> 
+</html>

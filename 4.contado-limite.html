@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador con limite</title>
+
+    <!-- CDN de libreria de react  -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- CDN de libreria de react dom -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- CDN de libreria de babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+    <header></header>
+    <main>
+        <div id="root"></div>
+    </main>
+    <footer></footer>
+
+    <script type="text/babel">
+        const App = () => {
+            const [contador, setContador] = React.useState(0);
+            
+            function aviso() {
+                alert(`No se puede procesar, utilice valores entre 0 y 10. \nGracias por su comprensión.`);
+            };
+
+            function suma () { 
+                if(contador<10) {
+                    setContador((valor) => ++valor)
+                } else {
+                    aviso();
+                }
+            };
+            
+            function resta () { 
+                if(contador>0) {
+                    setContador((valor) => --valor)
+                } else {
+                    aviso();
+                }
+            };
+
+            return (
+                <div>
+                    <p>Contador con límites</p>
+                    <ol>
+                        <li>No bajar de 0</li>
+                        <li>Aumentar hasta 10</li>
+                        <li>Mostrar mensaje al llegar al limite</li>
+
+                    </ol>
+                    <h1>Contador con limite: {contador}</h1>
+                    <button onClick={resta}>-</button>
+                    <button onClick={suma}>+</button>
+                </div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
