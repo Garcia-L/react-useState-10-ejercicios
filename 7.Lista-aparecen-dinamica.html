@@ -22,8 +22,10 @@
     <footer></footer>
 
     <script type="text/babel">
+        const {useState} = React;
+
         const App = () => {
-            const [lista, setLista] = React.useState([]);
+            const [lista, setLista] = useState([]);
 
             function guardar(e) {
                 e.preventDefault();
@@ -34,10 +36,21 @@
 
             return (
                 <div>
-                    <h1>Lista en pantalla, usando Arrays en el estado</h1>
+                    <h1>Reto</h1>
+                    <ul>
+                        <li>Crea un input para capturar un nombre de fruta</li>
+                        <li>Crea un boton para actualizar la variable de useState, capturando el valor del input</li>
+                        <li>Muestra la lista de nombres capturados</li>
+                    </ul>
+
+                    <h2>Lista en pantalla, usando Arrays en el estado</h2>
+
                     <form onSubmit={guardar}>
+
                         <input type="text" name="fruta" id="fruta" placeholder="Agrega un nombre de fruta" />
+
                         <button type="submit">Guardar</button>
+                        
                     </form>
 
                     <ul>

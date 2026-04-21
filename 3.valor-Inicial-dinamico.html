@@ -17,15 +17,19 @@
 
 <body>
     <header></header>
+
     <main>
         <div id="root"></div>
     </main>
+    
     <footer></footer>
 
     <script type="text/babel">
+        const {useState} = React;
+
         const App = () => {
 
-            const [contador, setContador] = React.useState(0);
+            const [contador, setContador] = useState(0);
 
             const controlarSumit = (e) => {
                 e.preventDefault();
@@ -36,7 +40,13 @@
 
             return (
                 <div>
-                    <p>Crea un input donde el usuario define el valor inicial del contador</p>
+                    <h1>Reto</h1>
+                    <ul>
+                        <li>Crea un contado que inicie en 0</li>
+                        <li>Crea un input para cambiar el valor del contador</li>
+                        <li>Crea un boton para definir el nuevo valor del contador</li>
+                    </ul>
+                    <p></p>
                     <h1>Contador: {contador}</h1>
 
                     <form onSubmit={controlarSumit}>

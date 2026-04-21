@@ -21,10 +21,13 @@
     </main>
     <footer></footer>
     <script type="text/babel">
+        const {useState} = React;
+
+
         const App = () => {
-            const [nombre, setNombre] = React.useState("");
-            const [edad, setEdad] = React.useState("");
-            const [datos, setDatos] = React.useState([]);
+            const [nombre, setNombre] = useState("");
+            const [edad, setEdad] = useState("");
+            const [datos, setDatos] = useState([]);
 
             const guardarNombre = (e) => {
                 const nombre = e.target.value; 
@@ -45,12 +48,19 @@
 
             return (
                 <div>
-                    <h1>Formulario de multiples estados, captura de datos</h1>
-                    <p>Agrega el nombre y edad de una persona, utilizando varios useState</p>
-                    <p>Un useState para nombre, otro para edad y uno que</p>
+                    <h1>Reto</h1>
+                    <ul>
+                        <li>Crea 2 input para capturar nombre y edad</li>
+                        <li>Crea un boton que actualiza la variable de useState y guarda el nombre y edad mediante un objeto</li>
+                    </ul>
+
+                    <h2>Formulario de multiples estados, captura de datos</h2>
+
                     <form onSubmit={guardar}>
                         <input type="text" id="nombre" placeholder="Ingresa tu nombre" onChange={guardarNombre} />
+
                         <input type="number" id="edad" placeholder="Ingresa su edad" onChange={guardarEdad} />
+
                         <button type="submit">Enviar</button>
                     </form>
 

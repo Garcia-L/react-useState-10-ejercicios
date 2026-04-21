@@ -17,22 +17,36 @@
 <body>
 
     <header></header>
+
     <main>
         <div id="root"></div>
     </main>
+
     <footer></footer>
+    
     <script type="text/babel">
+        const {useState} = React;
+
         const App = () => {
 
-            const [contador, setContador] = React.useState(0);
+            const [contador, setContador] = useState(0);
 
-            function sumar() { setContador(valor => ++valor) }
-            function restar() { setContador(valor => --valor) }
+            function sumar() { setContador(valor => valor +1) }
+            function restar() { setContador(valor => valor -1) }
             function resetear() { setContador(valor => valor = 0) }
 
             return (
                 <div>
-                    <p>Crea un botón para volver a 0, otros dos para aumentar en 1 y disminuir en 1</p>
+                    <h1>Reto</h1>
+                    <ul>
+                        <li>Crea un contador cuyo valor inicial es 0</li>
+                        <li>Crea tres botones</li>
+                        <ul>
+                            <li>El primero disminuye el contador en 1 </li>
+                            <li>El segundo resetea el contador a 0</li>
+                            <li>El último aumenta el contador en 1</li>
+                        </ul>
+                    </ul>
                     <h1>Contador: {contador}</h1>
 
                     <button onClick={restar}>-</button>

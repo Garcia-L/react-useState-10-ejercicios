@@ -17,14 +17,18 @@
 <body>
 
     <header></header>
+
     <main>
         <div id="root"></div>
     </main>
+    
     <footer></footer>
 
     <script type="text/babel">
+        const {useState} = React;
+
         const App = () => {
-            const [contador, setContador] = React.useState(0);
+            const [contador, setContador] = useState(0);
             
             function aviso() {
                 alert(`No se puede procesar, utilice valores entre 0 y 10. \nGracias por su comprensión.`);
@@ -32,7 +36,7 @@
 
             function suma () { 
                 if(contador<10) {
-                    setContador((valor) => ++valor)
+                    setContador((valor) => valor +1)
                 } else {
                     aviso();
                 }
@@ -40,7 +44,7 @@
             
             function resta () { 
                 if(contador>0) {
-                    setContador((valor) => --valor)
+                    setContador((valor) => valor -1)
                 } else {
                     aviso();
                 }
@@ -48,14 +52,15 @@
 
             return (
                 <div>
-                    <p>Contador con límites</p>
-                    <ol>
-                        <li>No bajar de 0</li>
-                        <li>Aumentar hasta 10</li>
-                        <li>Mostrar mensaje al llegar al limite</li>
+                    <h1>Reto</h1>
+                    <ul>
+                        <li>Crea un contador que inicie en 0</li>
+                        <li>Crea un boton para disminuir en 1, pero no permitas que el valor del contador sea menor a 0</li>
+                        <li>Crea un boton para aumentar hasta 10</li>
+                        <li>Crea un mensaje al llegar al limite</li>
 
-                    </ol>
-                    <h1>Contador con limite: {contador}</h1>
+                    </ul>
+                    <h2>Contador con limite: {contador}</h2>
                     <button onClick={resta}>-</button>
                     <button onClick={suma}>+</button>
                 </div>

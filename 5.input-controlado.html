@@ -14,15 +14,20 @@
 </head>
 <body>
     <header></header>
+
     <main>
         <div id="root"></div>
     </main>
+
     <footer></footer>
 
     <script type="text/babel">
+
+        const {useState} = React;
+        
         const App = ()=> {
             const text = "Ingresa un mensaje en el input";
-            const [input_Text, setInput_Text] = React.useState(`${text}`);
+            const [input_Text, setInput_Text] = useState(`${text}`);
 
             function textVivo(e) {
                 const valor_Actual = e.target.value;
@@ -35,7 +40,14 @@
 
             return (
                 <div>
-                    <h1>Input de texto, controlado</h1>
+
+                    <h1>Reto</h1>
+                    <ul>
+                        <li>Crea una variable con useState, de tipo, string vacío</li>
+                        <li>Crea un input donde su valor actualiza la variable</li>
+                    </ul>
+
+                    <h2>Input de texto, controlado</h2>
                     <p>{input_Text}</p>
                     <input onChange={textVivo} type="text" id="input_de_mensaje"/>
                 </div>

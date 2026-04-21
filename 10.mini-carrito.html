@@ -23,9 +23,11 @@
     <footer></footer>
 
     <script type="text/babel">
+        const {useState} = React;
+
         const App = () => {
-            const [carrito, setCarrito] = React.useState([]);
-            const [textInput, setTextInput] = React.useState("");
+            const [carrito, setCarrito] = useState([]);
+            const [textInput, setTextInput] = useState("");
 
             function agregar() {
 
@@ -43,7 +45,16 @@
 
             return (
                 <div>
-                    <h1>Mini carrito</h1>
+                    <h1>Reto</h1>
+
+                    <ul>
+                        <li>Crea un input para capturar nombre de frutas</li>
+                        <li>Crea un boton para guardar el nombre de la fruta, actualizando el useState</li>
+                        <li>Muestre la lista en pantalla</li>
+                        <li>Agrega un boton para eliminar cada elemento de la lista</li>
+                    </ul>
+
+                    <h2>Mini carrito</h2>
 
                     <p>Agregar productos</p>
 

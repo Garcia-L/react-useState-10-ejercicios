@@ -17,15 +17,19 @@
 
 <body>
     <header></header>
+
     <main>
         <div id="root"></div>
     </main>
+
     <footer></footer>
 
     <script type="text/babel">
+        const {useState} = React;
+
         const App = () => {
 
-            const [item, setItem] = React.useState([
+            const [item, setItem] = useState([
                 { fruta: "Mango" },
                 { fruta: "Uva" },
                 { fruta: "Naranja" },
@@ -39,8 +43,14 @@
             }
             return (
                 <div>
-                    <h1>Lista con edición</h1>
-                    <p>Edita cada elemento existente al hacer click</p>
+                    <h1>Reto</h1>
+
+                    <ul>
+                        <li>Crea un useState, que inicialice con una lista de nombre de frutas</li>
+                        <li>Crea un botón que permita editar cada nombre de la lista</li>
+                    </ul>
+
+                    <h2>Lista editable</h2>
 
                     <ul>
                         {

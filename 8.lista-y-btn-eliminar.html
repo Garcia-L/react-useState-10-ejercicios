@@ -17,14 +17,18 @@
 
 <body>
     <header></header>
+
     <main>
         <div id="root"></div>
     </main>
+
     <footer></footer>
 
     <script type="text/babel">
+        const {useState} = React;
+
         const App = () => {
-            const [item, setItem] = React.useState([
+            const [item, setItem] = useState([
                 { fruta: "Piña" },
                 { fruta: "Mango" },
                 { fruta: "Uva" },
@@ -36,8 +40,15 @@
             };
             return (
                 <div>
-                    <h1>Lista con boton de eliminación</h1>
-                    <p>Crea un botón para eliminar cada item</p>
+                    <h1>Reto</h1>
+
+                    <ul>
+                        <li>Crea un useState cuyo valor inicial es una lista de nombres de frutas</li>
+                        <li>Crea un botón para eliminar cada elemento de la lista</li>
+                    </ul>
+
+                    <h2>Lista con boton de eliminación</h2>
+
                     <ul>
                         {
                             item.map(
