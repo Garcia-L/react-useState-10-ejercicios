@@ -51,7 +51,3 @@ Cada ejercicio fue desarrollado con el objetivo de:
 ## 👨‍💻 Autor
 
 Luis Eduardo García Ruiz
-
-- useEffect (10 ejercicios)
-- useRef (10 ejercicios)
-- useCallback / useMemo
